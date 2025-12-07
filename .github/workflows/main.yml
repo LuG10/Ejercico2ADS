@@ -1,0 +1,24 @@
+name: comprobar calidad con script suma
+
+on: push 
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      security-events: write
+    
+    steps:
+      - name: cargar codigo
+        uses: actions/checkout@v5
+
+      - name: instalar python 
+        run: pip insatall python
+
+      - name: comprobar calidad
+        uses: advanced-security/python-lint-code-scanning-action@v1
+        with:
+          linter: pylint
+
+  
