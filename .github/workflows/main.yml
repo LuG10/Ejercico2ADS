@@ -13,8 +13,10 @@ jobs:
       - name: cargar codigo
         uses: actions/checkout@v5
 
-      - name: instalar python 
-        run: pip install python
+      - name: instalar python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: comprobar calidad
         uses: advanced-security/python-lint-code-scanning-action@v1
